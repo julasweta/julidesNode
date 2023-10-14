@@ -4,8 +4,7 @@ import {PostsRouter} from "./routes/posts.router.js";
 import {WorksRouter} from "./routes/works.router.js";
 import {configs} from "./configs/config.js"; 
 
-const express = require('express');
-const mongoose = require('mongoose');
+
 const app = express();
 const cors = require('cors'); // Додали бібліотеку для обробки CORS
 
