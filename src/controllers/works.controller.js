@@ -1,6 +1,5 @@
 
 import {worksService} from './../sevices/works.services.js';
-import { ApiError } from './../errors/api.error.js';
 
 class WorksController {
   async getWorks(
@@ -12,7 +11,7 @@ class WorksController {
       const works = await worksService.getWorks();
       return res.json(works);
     } catch (error) {
-      throw new ApiError("getWorks error", );
+     next(error);
     }
   }
 
