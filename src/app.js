@@ -3,18 +3,16 @@ import mongoose from "mongoose";
 import {PostsRouter} from "./routes/posts.router.js";
 import {WorksRouter} from "./routes/works.router.js";
 import {configs} from "./configs/config.js"; 
-
+const cors = require('cors'); 
 
 const app = express();
-const cors = require('cors'); // Додали бібліотеку для обробки CORS
-
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use(cors()); // Додали обробку CORS для всіх маршрутів
+app.use(cors()); 
 
-app.use('/posts', PostsRouter);
-app.use('/works', WorksRouter);
+app.use("/posts", PostsRouter);
+app.use("/works", WorksRouter);
 
 app.use((error, req, res, next) => {
   res.json(error.message);
