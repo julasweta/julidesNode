@@ -16,6 +16,6 @@ app.use((error, req, res, next) => {
 });
 
 app.listen(configs.PORT, async () => {
-  await mongoose.connect(configs.DB_URI);
+  await mongoose.connect('mongodb+srv://julides:19731971@cluster0.tdsa9lj.mongodb.net/julides');
   console.log(`Server has successfully started on PORT ${configs.PORT}`);
 });
