@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import {PostsRouter} from "./routes/posts.router.js";
 import {WorksRouter} from "./routes/works.router.js";
 import {configs} from "./configs/config.js"; 
+import cron from 'node-cron';
 
 
 const app = express();
@@ -29,6 +30,10 @@ app.use("/works", WorksRouter);
 
 app.use((error, req, res, next) => {
   res.json(error.message);
+});
+
+cron.schedule('*/10 * * * *', () => {
+  console.log('Це завдання запускається кожні 10 хвилин');
 });
 
 app.listen(configs.PORT, async () => {
